@@ -60,7 +60,7 @@ def doppler_corrections(ra, dec, mean_time, obs_lat=38.433056, obs_lon=-79.83972
                           np.sin(src.dec.rad) ])
 
     k = np.array( [lsr_comp[0]*src_comp[0], lsr_comp[1]*src_comp[1], lsr_comp[2]*src_comp[2]] )
-    v_lsr = 20. * np.sum( k ) * u.km/u.s
+    v_lsr = 20. * np.sum(k, axis=0) * u.km/u.s
     
     geo = - v_spin
     helio = heliocorr
